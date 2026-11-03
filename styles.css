@@ -245,7 +245,12 @@ img, svg {
     white-space: nowrap;
     clip-path: inset(50%);
   }
-
+  /*current page */
+  nav [aria-current="page"]{
+    color: var(--color-background);
+    background-color: var(--color-text);
+    font-weight: var(--font-weight-bold);
+  }
 
   /* focus */
   textarea:focus-visible, input:focus-visible {
@@ -260,7 +265,7 @@ img, svg {
   color: var(--color-primary);
   }
 
-    /* active */
+  /* active */
   a:active, button:active {
   transform: scale(0.95);
   }
