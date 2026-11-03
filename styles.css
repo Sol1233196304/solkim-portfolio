@@ -49,7 +49,7 @@
     --space-s: 0.5rem; /* 8px */
     --space-med: 1rem;  /* 16px */
     --space-lg: 1.5rem; /* 24px */
-    --space-xlg: 2.5rem;  /* 32px */
+    --space-xlg: 2.5rem;  /* 40px */
     
     /* shape */
     --radius-small: 8px; 
@@ -110,6 +110,7 @@
 img, svg {
     max-width: 100%;
   }
+
   footer {
     font-family: var(--accent-font);
     font-size: var(--font-s);
@@ -190,7 +191,7 @@ img, svg {
 
 
   /* cards */
-  .card, form {
+  .card {
     background-color: var(--color-white);
     color: var(--color-text);
     border: 3px solid var(--color-text);
@@ -213,13 +214,24 @@ img, svg {
   }
 
   /* forms */
-  
+  form {
+    background-color: var(--color-white);
+    color: var(--color-text);
+    border: 3px solid var(--color-text);
+    margin: var(--space-med) auto;
+    padding: var(--space-med);
+    position: relative;
+    border-radius: var(--radius-small);
+  }
+
   label {
   display: block;
   margin-top: var(--space-s);
   }
 
 } 
+
+
 
 @layer utilities {
 /*  at least three purposeful utilities plus hover, focus-visible, current page, and one additional relevant state. */
@@ -233,7 +245,8 @@ img, svg {
     white-space: nowrap;
     clip-path: inset(50%);
   }
-  
+
+
   /* focus */
   textarea:focus-visible, input:focus-visible {
   outline: 2px dashed var(--color-text);
@@ -251,6 +264,8 @@ img, svg {
   a:active, button:active {
   transform: scale(0.95);
   }
+
+
   
 }
 
@@ -273,10 +288,15 @@ img, svg {
 
 @media print {
   /* Add print improvements here. */
-  #header,
-  #footer,
-  #nav {
-    display: none !important;
+  .header,
+  .footer,
+  .nav {
+    display: none;
+    
+  }
+  body {
+    background-color: white;
+    color: #000000;
   }
 }
 
