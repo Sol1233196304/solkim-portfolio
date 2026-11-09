@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Desert Design Week</title>
+  <title>Sol Kim Portfolio Website</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -21,7 +21,7 @@
 
   <main>
     <section class="hero">
-      <div class="hero-content">
+      <div class="hero-wrapper">
         <h1 class="visually-hidden"> Sol Kim </h1>
         <p> Short Introduction </p>
         <p><a class="button" href="#about">See More</a></p>
@@ -29,43 +29,40 @@
     </section>
 
     <section class="section">
-      <div class="section-heading">
-        <h2>Featured works</h2>
-      </div>
-      <div class="card-grid">
-        <article class="card">
-          <h3>work 001</h3>
-          <p>Work summary</p>
-          <a href="#">View</a>
-        </article>
-        <article class="card">
-          <h3>work 002</h3>
-          <p>Work summary</p>
-          <a href="#">View</a>
-        </article>
-        <article class="card">
-          <h3>work 003</h3>
-          <p>Work summary</p>
-          <a href="#">View</a>
-        </article>
+      <div class="featured-works-wrapper">
+        <div class="section-heading">
+          <h2>Featured works</h2>
+        </div>
+        <div class="Featured-work-wrapper">
+          <div class="card-wrapper">
+            <article class="card">
+              <h3>work 001</h3>
+              <a href="#" aria-label="work_001"> <img src="Image/work_001.svg" alt="work_001" width="100%">
+              </a>
+              <p>Work summary</p>
+              <a href="#">View</a>
+            </article>
+          </div>
       </div>
     </section>
 
     <section class="section" id="contact">
-      <h2>Contact</h2>
-      <form class="contact-form">
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" required>
+      <div class="contact-form-wrapper">
+        <h2>Contact</h2>
+        <form class="contact-form">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required>
 
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required>
 
-        <label for="message">message</label>
-        <textarea id= "message" name="message" rows="7" required>  </textarea>
-        </select>
+          <label for="message">message</label>
+          <textarea id= "message" name="message" rows="7" required>  </textarea>
+          </select>
 
-        <button class="button" type="submit">Submit interest</button>
-      </form>
+          <button class="button" type="submit">Submit interest</button>
+        </form>
+      </div>
     </section>
   </main>
 

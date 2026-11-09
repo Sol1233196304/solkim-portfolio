@@ -52,12 +52,12 @@
     --space-xlg: 2.5rem;  /* 40px */
     
     /* shape */
-    --radius-small: 8px; 
-    --radius-big: 16px;
+    --radius-s: 8px; 
+    --radius-lg: 16px;
     
 
     /* focus */
-	  --box-shadow-sm: 3px 3px 7px grey;
+	  --box-shadow-s: 3px 3px 7px grey;
   }
     
     /* Any button over which the user's pointer is hovering */
@@ -85,21 +85,25 @@
     padding: var(--space-xs) var(--space-xlg) var(--space-med);
   }
 
-  section {
-    margin-top: var(--space-none);
-    margin-bottom: var(--space-lg);
+  .section {
+    margin-inline: auto;
+    margin-block: var(--space-none) var(--space-lg);
     padding: var(--space-s) var(--space-xlg);
+  }
+
+  .hero {
+    block-size: 50vh;
   }
 
   h1 {
     font-family: var(--body-font);
-    font-size: var(--font-xlg);
+    font-size: clamp(var(--font-lg), 5vw, var(--font-2xlg));
     font-weight: var(--font-weight-bold);
     margin: var(--space-lg) var(--space-none);
   }
 
   h2 {
-    margin-top: var(--space-none);
+    margin-block-start: var(--space-none);
     font-size: var(--font-lg);
   }
 
@@ -110,7 +114,10 @@
 img, svg {
     max-width: 100%;
   }
-
+  .wrapper {
+    inline-size: calc(100%-var(--space-lg));
+    margin-inline: auto;
+  }
   footer {
     font-family: var(--accent-font);
     font-size: var(--font-s);
@@ -140,19 +147,30 @@ img, svg {
 	display: inline-block;
 	padding: var(--space-s);
   background-color: var(--color-white); 
-  border-radius:var(--radius-small);
+  border-radius:var(--radius-s);
   font-family: var(--accent-font);
   color: var(--color-text);
   font-size: var(--font-s);
   text-align:center;
   }
 
-  .card-grid {
-  display: grid;
-  grid-column: auto;
-  grid-template-columns: repeat(3, 1fr);
-  margin-top: var(--space-none);
-  column-gap: var(--space-med);
+  .Featured-work-wrapper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-inline: auto;
+  } 
+
+  .card-wrapper{
+    container-type: inline-size;
+    width: 100%;
+  }
+  .card{  
+    /*Created a responsive square container with AI help*/
+    width: minmax(150px,200px);
+    aspect-ratio: 1/1;
+    }
+  .card p {
+    visibility: hidden  
   }
 
   .work {
@@ -186,7 +204,7 @@ img, svg {
     margin: var(--space-lg) var(--space-s);
     font-family: var(--accent-font);
     border: 1px solid var(--color-primary);
-    border-radius: var(--radius-big);
+    border-radius: var(--radius-lg);
   }
 
 
@@ -195,10 +213,10 @@ img, svg {
     background-color: var(--color-white);
     color: var(--color-text);
     border: 3px solid var(--color-text);
-    margin: var(--space-med) var(--space-none);
+    margin: var(--space-xs);
     padding: var(--space-med);
     position: relative;
-    border-radius: var(--radius-small);
+    border-radius: var(--radius-s);
   }
 
   .card a {
@@ -209,7 +227,7 @@ img, svg {
   /* callouts */
 
   .callout {
-    border-radius: var(--radius-big);
+    border-radius: var(--radius-lg);
     background-color: var(--color-white);
   }
 
@@ -221,12 +239,12 @@ img, svg {
     margin: var(--space-med) auto;
     padding: var(--space-med);
     position: relative;
-    border-radius: var(--radius-small);
+    border-radius: var(--radius-s);
   }
 
   label {
   display: block;
-  margin-top: var(--space-s);
+  margin-block-start: var(--space-s);
   }
 
 } 
@@ -255,8 +273,8 @@ img, svg {
   /* focus */
   textarea:focus-visible, input:focus-visible {
   outline: 2px dashed var(--color-text);
-  border-radius: var(--radius-small);
-  box-shadow: var(--box-shadow-sm);
+  border-radius: var(--radius-s);
+  box-shadow: var(--box-shadow-s);
   }
 
   /* hover */
@@ -288,7 +306,40 @@ img, svg {
   }
 
 }
+@container (width > 400px) {
+  .card {
+    display: grid;
+    grid-template-areas: "";
+  }
+}
+
+@media (width > 650px) {
+  .Featured-work-wrapper {
+    /*medium screens, .card-grid needs at least 650px+margin to maintain its layout.*/ 
+    display: grid;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+  }
+  .card {
+    aspect-ratio: 1/1.45;
+  }    
+  .card p{
+  visibility: visible;  
+  }
   
+}
+
+@media (width > 1150px) {
+  .Featured-work-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(500px, 1fr));
+  }
+    .card {
+    aspect-ratio:1/0.65;
+    }
+    .card p{
+    visibility: visible;  
+    }
+}
 
 
 @media print {
@@ -304,4 +355,3 @@ img, svg {
     color: #000000;
   }
 }
-
