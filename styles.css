@@ -363,6 +363,7 @@ img, svg {
     color: #000000;
   }
 }
+/*Requirements 4 : Include a simple fallback or note explaining why the default remains usable.*/
   @supports not (container-type: inline-size) {
     @media (width > 1150px) {
       .card {
