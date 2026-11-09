@@ -89,6 +89,7 @@
     margin-inline: auto;
     margin-block: var(--space-none) var(--space-lg);
     padding: var(--space-s) var(--space-xlg);
+    position: relative;
   }
 
   .hero {
@@ -166,11 +167,16 @@ img, svg {
   }
   .card{  
     /*Created a responsive square container with AI help*/
-    width: minmax(150px,200px);
+    width: minmax(100px,150px);
     aspect-ratio: 1/1;
+    overflow: hidden;
+    place-items: stretch;
     }
   .card p {
-    visibility: hidden  
+    visibility: hidden;  
+    }
+  .card .button{
+    visibility: hidden;
   }
 
   .work {
@@ -193,8 +199,7 @@ img, svg {
   /* Add reusable components such as buttons, cards, callouts, and forms here. */
 
   /* buttons */
-  main a, button {
-    
+  button {
     background-color: var(--color-white);
     font-size: var(--font-s);
     color: var(--color-text);
@@ -205,6 +210,7 @@ img, svg {
     font-family: var(--accent-font);
     border: 1px solid var(--color-primary);
     border-radius: var(--radius-lg);
+
   }
 
 
@@ -215,15 +221,9 @@ img, svg {
     border: 3px solid var(--color-text);
     margin: var(--space-xs);
     padding: var(--space-med);
-    position: relative;
     border-radius: var(--radius-s);
   }
 
-  .card a {
-    position: absolute;
-  }
-  
-  
   /* callouts */
 
   .callout {
@@ -297,7 +297,7 @@ img, svg {
 
   .button {
   display: block;
-  width: 300px;
+  width: 100;
   justify-items: center;
   }
 
@@ -308,23 +308,31 @@ img, svg {
 }
 @container (width > 400px) {
   .card {
-    display: grid;
-    grid-template-areas: "";
+    display: grid;    
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 2fr 0.5fr;
   }
 }
 
-@media (width > 650px) {
+@media (width > 700px) {
   .Featured-work-wrapper {
     /*medium screens, .card-grid needs at least 650px+margin to maintain its layout.*/ 
     display: grid;
-    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, minmax(80px, 1fr));
+
   }
   .card {
     aspect-ratio: 1/1.45;
+        overflow: visible;
+
   }    
   .card p{
   visibility: visible;  
   }
+  .button{
+    visibility: visible;
+  }
+  
   
 }
 
