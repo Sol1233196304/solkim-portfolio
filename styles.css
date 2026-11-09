@@ -363,3 +363,12 @@ img, svg {
     color: #000000;
   }
 }
+  @supports not (container-type: inline-size) {
+    @media (width > 1150px) {
+      .card {
+      display: grid;    
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: 2fr 0.5fr;
+      }
+    }
+  }
